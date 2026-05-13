@@ -49,10 +49,27 @@ test_code <- function(code, env, reporter = NULL, skip_on_empty = TRUE) {
 
   frame <- caller_env()
 
+  otel_n_success <- 0L
+  otel_n_failure <- 0L
+  otel_n_error <- 0L
+  otel_n_skip <- 0L
+  otel_n_warning <- 0L
+
   test <- test_description()
   if (!is.null(test)) {
+    span <- otel_local_test_span(test, scope = frame)
     reporter$start_test(context = reporter$.context, test = test)
-    withr::defer(reporter$end_test(context = reporter$.context, test = test))
+    withr::defer({
+      otel_update_span(
+        span,
+        otel_n_success,
+        otel_n_failure,
+        otel_n_error,
+        otel_n_skip,
+        otel_n_warning
+      )
+      reporter$end_test(context = reporter$.context, test = test)
+    })
   }
 
   if (the$top_level_test) {
@@ -82,6 +99,17 @@ test_code <- function(code, env, reporter = NULL, skip_on_empty = TRUE) {
 
     e$test <- test %||% "(code run outside of `test_that()`)"
 
+    # record keeping for otel
+    switch(
+      expectation_type(e),
+      success = otel_n_success <<- otel_n_success + 1L,
+      failure = otel_n_failure <<- otel_n_failure + 1L,
+      error = otel_n_error <<- otel_n_error + 1L,
+      skip = otel_n_skip <<- otel_n_skip + 1L,
+      warning = otel_n_warning <<- otel_n_warning + 1L,
+      NULL
+    )
+
     ok <<- ok && expectation_ok(e)
     reporter$add_result(context = reporter$.context, test = test, result = e)
   }
@@ -110,7 +138,7 @@ test_code <- function(code, env, reporter = NULL, skip_on_empty = TRUE) {
   }
   handle_expectation <- function(e) {
     the$test_expectations <- the$test_expectations + 1L
-    register_expectation(e, 7)
+    register_expectation(e, 11)
     invokeRestart("muffle_expectation")
   }
   handle_warning <- function(e) {

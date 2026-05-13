@@ -27,6 +27,7 @@ CheckReporter <- R6::R6Class(
     add_result = function(context, test, result) {
       if (expectation_broken(result)) {
         self$problems$push(result)
+        try(save_test(result$srcref, "_problems"), silent = TRUE)
       } else if (expectation_warning(result)) {
         self$warnings$push(result)
       } else if (expectation_skip(result)) {
@@ -122,7 +123,7 @@ summary_line <- function(n_fail, n_warn, n_skip, n_pass) {
 snapshot_check_hint <- function() {
   intro <- "To review and process snapshots locally:"
 
-  if (on_gh()) {
+  if (on_gh() && Sys.getenv("GITHUB_JOB") == "R-CMD-check") {
     repository <- Sys.getenv("GITHUB_REPOSITORY")
     run_id <- Sys.getenv("GITHUB_RUN_ID")
 

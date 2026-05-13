@@ -23,7 +23,6 @@
 ^[\.]?air\.toml$
 ^\.vscode$
 ^\.git-blame-ignore-rev$
-^CLAUDE\.md$
 ^\.claude$
 ^vignettes/articles$
 ^catch2-update$
