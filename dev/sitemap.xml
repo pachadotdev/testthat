@@ -1,5 +1,4 @@
 <urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
-<url><loc>https://testthat.r-lib.org/dev/CLAUDE.html</loc></url>
 <url><loc>https://testthat.r-lib.org/dev/CODE_OF_CONDUCT.html</loc></url>
 <url><loc>https://testthat.r-lib.org/dev/LICENSE-text.html</loc></url>
 <url><loc>https://testthat.r-lib.org/dev/LICENSE.html</loc></url>
@@ -21,6 +20,7 @@
 <url><loc>https://testthat.r-lib.org/dev/reference/FailReporter.html</loc></url>
 <url><loc>https://testthat.r-lib.org/dev/reference/JunitReporter.html</loc></url>
 <url><loc>https://testthat.r-lib.org/dev/reference/ListReporter.html</loc></url>
+<url><loc>https://testthat.r-lib.org/dev/reference/LlmReporter.html</loc></url>
 <url><loc>https://testthat.r-lib.org/dev/reference/LocationReporter.html</loc></url>
 <url><loc>https://testthat.r-lib.org/dev/reference/MinimalReporter.html</loc></url>
 <url><loc>https://testthat.r-lib.org/dev/reference/MultiReporter.html</loc></url>
@@ -73,6 +73,7 @@
 <url><loc>https://testthat.r-lib.org/dev/reference/expect_that.html</loc></url>
 <url><loc>https://testthat.r-lib.org/dev/reference/expect_vector.html</loc></url>
 <url><loc>https://testthat.r-lib.org/dev/reference/expectation.html</loc></url>
+<url><loc>https://testthat.r-lib.org/dev/reference/extract_test.html</loc></url>
 <url><loc>https://testthat.r-lib.org/dev/reference/fail.html</loc></url>
 <url><loc>https://testthat.r-lib.org/dev/reference/find_reporter.html</loc></url>
 <url><loc>https://testthat.r-lib.org/dev/reference/find_test_scripts.html</loc></url>
@@ -118,6 +119,7 @@
 <url><loc>https://testthat.r-lib.org/dev/reference/testthat_examples.html</loc></url>
 <url><loc>https://testthat.r-lib.org/dev/reference/testthat_results.html</loc></url>
 <url><loc>https://testthat.r-lib.org/dev/reference/testthat_tolerance.html</loc></url>
+<url><loc>https://testthat.r-lib.org/dev/reference/topic-name.html</loc></url>
 <url><loc>https://testthat.r-lib.org/dev/reference/try_again.html</loc></url>
 <url><loc>https://testthat.r-lib.org/dev/reference/use_catch.html</loc></url>
 <url><loc>https://testthat.r-lib.org/dev/reference/verify_output.html</loc></url>

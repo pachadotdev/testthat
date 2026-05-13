@@ -29,7 +29,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">testthat</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">3.2.3.9000</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">3.3.2.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -61,6 +61,7 @@
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-news" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">News</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-news">
 <li><h6 class="dropdown-header" data-toc-skip>Releases</h6></li>
+    <li><a class="external-link dropdown-item" href="https://www.tidyverse.org/blog/2025/11/testthat-3-3-0/">Version 3.3.0</a></li>
     <li><a class="external-link dropdown-item" href="https://www.tidyverse.org/blog/2023/10/testthat-3-2-0/">Version 3.2.0</a></li>
     <li><a class="external-link dropdown-item" href="https://www.tidyverse.org/blog/2021/10/testthat-3-1/">Version 3.1.0</a></li>
     <li><a class="external-link dropdown-item" href="https://www.tidyverse.org/blog/2020/10/testthat-3-0-0/">Version 3.0.0</a></li>
@@ -293,14 +294,6 @@ capturing errors is <em>slightly</em> more difficult because
 <span><span class="op">}</span><span class="op">)</span></span>
 <span><span class="co">#&gt; ── <span style="color: #BBBB00; font-weight: bold;">Error</span><span style="font-weight: bold;">: you can't add a number and a letter</span> ─────────────────────────</span></span>
 <span><span class="co">#&gt; Error in `1 + "a"`: non-numeric argument to binary operator</span></span>
-<span><span class="co">#&gt; <span style="font-weight: bold;">Backtrace:</span></span></span>
-<span><span class="co">#&gt; <span style="color: #555555;">    </span>▆</span></span>
-<span><span class="co">#&gt; <span style="color: #555555;"> 1. </span>└─<span style="font-weight: bold;">testthat</span>::expect_snapshot(1 + "a")</span></span>
-<span><span class="co">#&gt; <span style="color: #555555;"> 2. </span>  └─testthat:::expect_snapshot_(...)</span></span>
-<span><span class="co">#&gt; <span style="color: #555555;"> 3. </span>    ├─<span style="font-weight: bold;">base</span>::withRestarts(cnd_signal(state$error), muffle_expectation = function() NULL)</span></span>
-<span><span class="co">#&gt; <span style="color: #555555;"> 4. </span>    │ └─base (local) withOneRestart(expr, restarts[[1L]])</span></span>
-<span><span class="co">#&gt; <span style="color: #555555;"> 5. </span>    │   └─base (local) doWithOneRestart(return(expr), restart)</span></span>
-<span><span class="co">#&gt; <span style="color: #555555;"> 6. </span>    └─<span style="font-weight: bold;">rlang</span>::cnd_signal(state$error)</span></span>
 <span><span class="co">#&gt; <span style="color: #BBBB00; font-weight: bold;">Error</span><span style="font-weight: bold;">:</span></span></span>
 <span><span class="co">#&gt; <span style="color: #BBBB00;">!</span> Test failed with 1 failure and 0 successes.</span></span></code></pre></div>
 <p>This is a safety valve that ensures that you don’t accidentally write
@@ -448,7 +441,7 @@ useful, the snapshot will be different every time the test is run:</p>
 <span><span class="co">#&gt;   safe_write_lines(letters, path)</span></span>
 <span><span class="co">#&gt; Condition</span></span>
 <span><span class="co">#&gt;   Error in `safe_write_lines()`:</span></span>
-<span><span class="co">#&gt;   ! '/tmp/RtmpLUoLEK/file2b1c70bbe175' already exists.</span></span>
+<span><span class="co">#&gt;   ! '/tmp/Rtmpq1q4P7/file29cb6c45ee46' already exists.</span></span>
 <span><span class="co">#&gt;   i Set `overwrite = TRUE` to overwrite</span></span>
 <span><span class="co">#&gt; <span style="font-weight: bold;">Test passed with 1 success 🎊</span>.</span></span></code></pre></div>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
@@ -462,8 +455,8 @@ useful, the snapshot will be different every time the test is run:</p>
 <span><span class="co">#&gt; <span style="color: #555555;">    safe_write_lines(letters, path)</span></span></span>
 <span><span class="co">#&gt; <span style="color: #555555;">  Condition</span></span></span>
 <span><span class="co">#&gt; <span style="color: #555555;">    Error in `safe_write_lines()`:</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BBBB00;">-   ! '/tmp/RtmpLUoLEK/file2b1c70bbe175' already exists.</span></span></span>
-<span><span class="co">#&gt; <span style="color: #0000BB;">+   ! '/tmp/RtmpLUoLEK/file2b1c506d757d' already exists.</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BBBB00;">-   ! '/tmp/Rtmpq1q4P7/file29cb6c45ee46' already exists.</span></span></span>
+<span><span class="co">#&gt; <span style="color: #0000BB;">+   ! '/tmp/Rtmpq1q4P7/file29cb45ea3a50' already exists.</span></span></span>
 <span><span class="co">#&gt; <span style="color: #555555;">    i Set `overwrite = TRUE` to overwrite</span></span></span>
 <span><span class="co">#&gt; * Run `testthat::snapshot_accept("snapshotting.Rmd")` to accept the change.</span></span>
 <span><span class="co">#&gt; * Run `testthat::snapshot_review("snapshotting.Rmd")` to review the change.</span></span>
@@ -571,8 +564,8 @@ the test fails. Instead, you’ll need to call
 <code><a href="../reference/snapshot_accept.html">snapshot_review()</a></code>. This launches a Shiny app that allows
 you to visually review each change and approve it if it’s
 deliberate:</p>
-<p><img src="review-image.png" alt="Screenshot of the Shiny app for reviewing snapshot changes to images. It shows the changes to a png file of a plot created in a snapshot test. There is a button to accept the changed snapshot, or to skip it."></p>
-<p><img src="review-text.png" alt="Screenshot of the Shiny app for reviewing snapshot changes to text files. It shows the changes to a .R file created in a snapshot test, where a line has been removed. There is a button to accept the changed snapshot, or to skip it."></p>
+<p><img src="review-image.png" class="r-plt" alt="Screenshot of the Shiny app for reviewing snapshot changes to images. It shows the changes to a png file of a plot created in a snapshot test. There is a button to accept the changed snapshot, or to skip it."></p>
+<p><img src="review-text.png" class="r-plt" alt="Screenshot of the Shiny app for reviewing snapshot changes to text files. It shows the changes to a .R file created in a snapshot test, where a line has been removed. There is a button to accept the changed snapshot, or to skip it."></p>
 <p>The display varies based on the file type (currently text files,
 common image files, and csv files are supported).</p>
 <p>Sometimes the failure occurs in a non-interactive environment where
@@ -636,7 +629,7 @@ requests.</p></li>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.3.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
 </div>
 
   </div></footer>
